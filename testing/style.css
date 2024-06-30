@@ -1,0 +1,47 @@
+#container {
+    position: absolute;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    border: 2px solid black;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 200px;
+    margin-left: 100px;
+}
+
+.box {
+    height: 100px;
+    width: 100px;
+    border: 1px solid black;
+    font-size: 5em;
+    text-align: center;
+    cursor: pointer;
+}
+
+
+
+#player1 {
+    font-size: 2em;
+    position: absolute;
+
+}
+
+#player2 {
+    font-size: 2em;
+    position: absolute;
+    margin-left: 300px;
+
+}
+
+#statistics {
+    position: absolute;
+    margin-top: 530px;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    column-gap: 30px;
+}
+
+.column {
+    display: grid;
+    grid-template-columns: auto;
+}
