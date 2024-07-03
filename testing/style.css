@@ -23,6 +23,10 @@
 #player1 {
     font-size: 2em;
     position: absolute;
+    border: 2px solid black;
+    padding: 5px;
+    min-height: 40px;
+    min-width: 100px;
 
 }
 
@@ -30,7 +34,10 @@
     font-size: 2em;
     position: absolute;
     margin-left: 300px;
-
+    border: 2px solid black;
+    padding: 5px;
+    min-height: 40px;
+    min-width: 100px;
 }
 
 
@@ -60,4 +67,10 @@ table {
     margin-top: 200px;
     margin-left: 90px;
     display: none;
+}
+
+#submit_name {
+    position: absolute;
+    margin-left: 340px;
+    margin-top: -30px;
 }

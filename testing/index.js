@@ -15,6 +15,11 @@ window.addEventListener("DOMContentLoaded", () => {
     let box7 = document.getElementById("box7");
     let box8 = document.getElementById("box8");
     let box9 = document.getElementById("box9");
+    let table = document.getElementById("tabel")
+
+    let name1 = document.getElementById("name1")
+    let name2 = document.getElementById("name2")
+    let submit_name = document.getElementById("submit_name")
 
     let player1_wins = document.getElementById("player1_wins")
     let player1_loses = document.getElementById("player1_loses")
@@ -31,7 +36,7 @@ window.addEventListener("DOMContentLoaded", () => {
     let count_egal = 0;
 
 
-
+    submit_name.addEventListener("click", PutPlayerInList)
     container.addEventListener("click", Hide)
     reset.addEventListener("click", Reset)
 
@@ -210,6 +215,42 @@ window.addEventListener("DOMContentLoaded", () => {
         player2.style.color = "black"
         container.addEventListener("click", Hide)
         baner.style.display = "none"
+
+    }
+    function PutPlayerInList() {
+
+
+        const tbody = document.getElementById("table");
+        const template = document.getElementById("player_history");
+
+        const clone = template.content.cloneNode(true);
+        let td = clone.querySelectorAll("td");
+
+        td[0].textContent = name1.value;
+        td[1].textContent = count_player1_wins;
+        td[2].textContent = count_player1_loses;
+        td[3].textContent = count_egal;
+
+        tbody.appendChild(clone);
+
+        const clone2 = template.content.cloneNode(true);
+        td = clone2.querySelectorAll("td");
+
+        td[0].textContent = name2.value;
+        td[1].textContent = count_player2_wins;
+        td[2].textContent = count_player2_loses;
+        td[3].textContent = count_egal;
+
+        tbody.appendChild(clone2);
+
+        player1.innerHTML = name1.value;
+        player2.innerHTML = name2.value;
+
+
+        name1.value = ""
+        name2.value = ""
+
+
 
     }
 

@@ -12,9 +12,11 @@
         <input type="text" id="name1" required><br><br>
         <label for="name2" id="second_player">Second Player Name (O)</label>
         <input type="text" id="name2" required>
+        <br>
+        <button id="submit_name">Start</button>
 
-        <h1 id="player1">Andrei</h1>
-        <h1 id="player2">Mihai </h1>
+        <h1 id="player1"></h1>
+        <h1 id="player2"></h1>
 
         <div id="container">
             <div class="box" id="box1"></div>
@@ -32,25 +34,32 @@
 
         <table id="table">
             <!-- capul de tabel -->
-            <tr>
+            <th>
                 <th>Name</th>
                 <th>Wins</th>
                 <th>Loses</th>
-            </tr>
+            </th>
             <!-- se va creea cate unul pentru fiercare jucator nou care intra sa joace -->
-            <tr>
-                <td>Andrei</td>
-                <td id="player1_wins"></td>
-                <td id="player1_loses"></td>
-                <td class="egal"></td>
-
-            </tr>
-            <tr>
+            <template id="player_history">
+                <tr>
+                    <td></td>
+                    <td id="andrei_wins"></td>
+                    <td id="andrei_loses"></td>
+                    <td class="andrei_egal"></td>
+                </tr>
+            </template>
+            <!-- <tr>
+                    <td>Andrei</td>
+                    <td id="player1_wins"></td>
+                    <td id="player1_loses"></td>
+                    <td class="egal"></td>
+                </tr> -->
+            <!-- <tr>
                 <td>Mihai</td>
                 <td id="player2_wins"></td>
                 <td id="player2_loses"></td>
                 <td class="egal"></td>
-            </tr>
+            </tr> -->
 
         </table>
     </body>
