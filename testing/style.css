@@ -33,20 +33,31 @@
 
 }
 
-#statistics {
-    position: absolute;
-    margin-top: 530px;
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    column-gap: 30px;
-}
-
-.column {
-    display: grid;
-    grid-template-columns: auto;
-}
 
 table {
     position: absolute;
     margin-top: 400px;
+}
+
+#reset {
+    border: none;
+    border-radius: 20px;
+    background-color: rgb(181, 181, 246);
+    color: azure;
+    font-size: 1.3em;
+    padding: 5px 10px;
+    cursor: pointer;
+    position: absolute;
+    margin-top: 440px;
+    margin-left: 20px;
+}
+
+#winer_baner {
+    background-color: rgb(73, 73, 238);
+    color: white;
+    font-size: 5em;
+    position: absolute;
+    margin-top: 200px;
+    margin-left: 90px;
+    display: none;
 }
