@@ -1,0 +1,79 @@
+#container {
+    position: absolute;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    border: 2px solid black;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 90px;
+    margin-left: 100px;
+}
+
+.box {
+    height: 100px;
+    width: 100px;
+    border: 1px solid black;
+    font-size: 5em;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+
+}
+
+
+
+#player1 {
+    font-size: 2em;
+    position: absolute;
+    border: 2px solid black;
+    padding: 5px;
+    min-height: 40px;
+    min-width: 100px;
+
+}
+
+#player2 {
+    font-size: 2em;
+    position: absolute;
+    margin-left: 300px;
+    border: 2px solid black;
+    padding: 5px;
+    min-height: 40px;
+    min-width: 100px;
+}
+
+
+table {
+    position: absolute;
+    margin-top: 400px;
+}
+
+#reset {
+    border: none;
+    border-radius: 20px;
+    background-color: rgb(181, 181, 246);
+    color: azure;
+    font-size: 1.3em;
+    padding: 5px 10px;
+    cursor: pointer;
+    position: absolute;
+    margin-top: 440px;
+    margin-left: 20px;
+}
+
+#winer_baner {
+    background-color: rgb(73, 73, 238);
+    color: white;
+    font-size: 5em;
+    position: absolute;
+    margin-top: 200px;
+    margin-left: 90px;
+    display: none;
+
+}
+
+#submit_name {
+    position: absolute;
+    margin-left: 340px;
+    margin-top: -30px;
+}
