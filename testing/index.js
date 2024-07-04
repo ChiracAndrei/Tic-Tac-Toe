@@ -194,11 +194,18 @@ window.addEventListener("DOMContentLoaded", () => {
     function ColorPlayer(par) {
         if (par == false) {
             player1.style.color = "red"
+            player1.style.borderColor = "red"
             player2.style.color = "black"
+            player2.style.borderColor = "black"
+
         }
         else {
             player2.style.color = "red"
+            player2.style.borderColor = "red"
+
             player1.style.color = "black"
+            player1.style.borderColor = "black"
+
         }
     }
     function Reset() {
@@ -220,7 +227,7 @@ window.addEventListener("DOMContentLoaded", () => {
     function PutPlayerInList() {
 
 
-        const tbody = document.getElementById("table");
+        table = document.getElementById("table");
         const template = document.getElementById("player_history");
 
         const clone = template.content.cloneNode(true);
@@ -231,7 +238,7 @@ window.addEventListener("DOMContentLoaded", () => {
         td[2].textContent = count_player1_loses;
         td[3].textContent = count_egal;
 
-        tbody.appendChild(clone);
+        table.appendChild(clone);
 
         const clone2 = template.content.cloneNode(true);
         td = clone2.querySelectorAll("td");
@@ -241,7 +248,7 @@ window.addEventListener("DOMContentLoaded", () => {
         td[2].textContent = count_player2_loses;
         td[3].textContent = count_egal;
 
-        tbody.appendChild(clone2);
+        table.appendChild(clone2);
 
         player1.innerHTML = name1.value;
         player2.innerHTML = name2.value;
@@ -251,7 +258,14 @@ window.addEventListener("DOMContentLoaded", () => {
         name2.value = ""
 
 
+    }
 
+    function SavePlayer() {
+        localStorage.setItem(name1.value, [count_player1_wins, count_player1_loses, count_egal])
+        localStorage.setItem(name2.value, [count_player2_wins, count_player2_loses, count_egal])
+    }
+    if (location.reload == true) {
+        localStorage.getItem("name1.value")
     }
 
 })
