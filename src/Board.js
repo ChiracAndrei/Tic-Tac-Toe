@@ -5,15 +5,15 @@ import './App.css';
 function Board() {
 
     const [box, setBox] = useState(() => {
-        return (JSON.parse(localStorage.getItem('box')))
+        return (JSON.parse(localStorage.getItem('box'))) || Array(9).fill(null);
     });
 
     let [turn, setTurn] = useState(() => {
-        return (JSON.parse(localStorage.getItem("turn")))
+        return (JSON.parse(localStorage.getItem("turn")));
     });
 
     const [winner, setWinner] = useState(() => {
-        return (JSON.parse(localStorage.getItem("winner")))
+        return (JSON.parse(localStorage.getItem("winner"))) || null;
     })
 
 
@@ -53,7 +53,8 @@ function Board() {
 
 
     let status;
-    if (calculateWinner(box)) {
+    let winnerResult = calculateWinner(box)
+    if (winnerResult) {
         status = "Castigatorul este " + calculateWinner(box);
 
     } else {
@@ -61,11 +62,7 @@ function Board() {
     }
 
 
-
-
-
-
-    function Click(i) {
+    function handleClick(i) {
 
         if (box[i] || winner) return;
         const nextMove = box.slice();
@@ -83,12 +80,10 @@ function Board() {
 
 
 
-    function Reset() {
+    function handleReset() {
         setBox(Array(9).fill(null));
-        turn = true
-        setTurn(turn)
+        setTurn(true)
         setWinner(null)
-
     }
 
 
@@ -97,22 +92,22 @@ function Board() {
             <div className="status">{status}</div>
             <div id="container">
                 {/* <div className="row"> */}
-                <Box value={box[0]} onBoxClick={() => Click(0)} />
-                <Box value={box[1]} onBoxClick={() => Click(1)} />
-                <Box value={box[2]} onBoxClick={() => Click(2)} />
+                <Box value={box[0]} onBoxClick={() => handleClick(0)} />
+                <Box value={box[1]} onBoxClick={() => handleClick(1)} />
+                <Box value={box[2]} onBoxClick={() => handleClick(2)} />
                 {/* </div>
                 <div className="row"> */}
-                <Box value={box[3]} onBoxClick={() => Click(3)} />
-                <Box value={box[4]} onBoxClick={() => Click(4)} />
-                <Box value={box[5]} onBoxClick={() => Click(5)} />
+                <Box value={box[3]} onBoxClick={() => handleClick(3)} />
+                <Box value={box[4]} onBoxClick={() => handleClick(4)} />
+                <Box value={box[5]} onBoxClick={() => handleClick(5)} />
                 {/* </div>
                 <div className="row"> */}
-                <Box value={box[6]} onBoxClick={() => Click(6)} />
-                <Box value={box[7]} onBoxClick={() => Click(7)} />
-                <Box value={box[8]} onBoxClick={() => Click(8)} />
+                <Box value={box[6]} onBoxClick={() => handleClick(6)} />
+                <Box value={box[7]} onBoxClick={() => handleClick(7)} />
+                <Box value={box[8]} onBoxClick={() => handleClick(8)} />
                 {/* </div> */}
             </div >
-            <button id="reset" onClick={Reset}>RESET</button>
+            <button id="reset" onClick={handleReset}>RESET</button>
 
         </>
     );
