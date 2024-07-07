@@ -11,7 +11,7 @@ function App() {
   return (
     <>
 
-      {/* <Names></Names> */}
+      <Names></Names>
 
       <Board></Board>
     </>
