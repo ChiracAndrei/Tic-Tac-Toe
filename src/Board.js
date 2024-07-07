@@ -89,25 +89,23 @@ function Board() {
 
     return (
         <>
-            <div className="status">{status}</div>
+            <div id="status">{status}</div>
             <div id="container">
-                {/* <div className="row"> */}
+
                 <Box value={box[0]} onBoxClick={() => handleClick(0)} />
                 <Box value={box[1]} onBoxClick={() => handleClick(1)} />
                 <Box value={box[2]} onBoxClick={() => handleClick(2)} />
-                {/* </div>
-                <div className="row"> */}
+
                 <Box value={box[3]} onBoxClick={() => handleClick(3)} />
                 <Box value={box[4]} onBoxClick={() => handleClick(4)} />
                 <Box value={box[5]} onBoxClick={() => handleClick(5)} />
-                {/* </div>
-                <div className="row"> */}
+
                 <Box value={box[6]} onBoxClick={() => handleClick(6)} />
                 <Box value={box[7]} onBoxClick={() => handleClick(7)} />
                 <Box value={box[8]} onBoxClick={() => handleClick(8)} />
-                {/* </div> */}
+
             </div >
-            <button id="reset" onClick={handleReset}>RESET</button>
+            <button id="resetGame" onClick={handleReset}>RESET GAME</button>
 
         </>
     );

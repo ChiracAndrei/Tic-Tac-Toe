@@ -1,0 +1,78 @@
+#player1 {
+    font-size: 2em;
+    position: absolute;
+    border: 2px solid black;
+    padding: 5px 10px;
+    min-height: 40px;
+    min-width: 100px;
+    margin-left: 130px;
+    margin-top: 120px;
+    border-radius: 10px;
+    background-color: aqua;
+    font-weight: 600;
+
+}
+
+#player2 {
+    font-size: 2em;
+    position: absolute;
+    margin-left: 530px;
+    border: 2px solid black;
+    padding: 5px 10px;
+    min-height: 40px;
+    min-width: 100px;
+    margin-top: 120px;
+    border-radius: 10px;
+    background-color: aqua;
+    font-weight: 600;
+}
+
+#input1 {
+    margin: 20px;
+    font-size: 2em;
+    border: 3px solid black;
+    border-radius: 10px 20px 10px 20px;
+    padding-left: 10px;
+}
+
+#input2 {
+    font-size: 2em;
+    margin: 20px;
+    border: 3px solid black;
+    border-radius: 10px 20px 10px 20px;
+    padding-left: 10px;
+}
+
+#submitBtn {
+    position: absolute;
+    font-size: 1.5em;
+    margin-left: 190px;
+    padding: 5px 10px;
+    background-color: green;
+    color: aliceblue;
+    font-weight: 500;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#submitBtn:hover {
+    background-color: rgb(62, 152, 62);
+}
+
+#resetNamesBtn {
+    position: absolute;
+    margin-left: 420px;
+    font-size: 1.5em;
+    padding: 5px 10px;
+    background-color: red;
+    color: aliceblue;
+    font-weight: 500;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#resetNamesBtn:hover {
+    background-color: rgb(246, 108, 108);
+}

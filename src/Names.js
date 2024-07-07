@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import "./names.css"
 
 export default function Names() {
     const [inputValue1, setInputValue1] = useState('');
@@ -50,25 +51,29 @@ export default function Names() {
 
     return (
         <>
-            <form onSubmit={handleSubmit}>
-                <input type="text"
-                    name='username1'
-                    placeholder='Player 1'
-                    value={inputValue1}
-                    onChange={handleInputChange1} />
-                <input type="text"
-                    name='username2'
-                    placeholder='Player 1'
-                    value={inputValue2}
-                    onChange={handleInputChange2} />
-                <button type='submit'>Submit</button>
-            </form>
-            <button onClick={handleReset}>Reset Names</button>
+            <div id='namesContainer'>
+                <form onSubmit={handleSubmit}>
+                    <input type="text"
+                        id='input1'
+                        name='username1'
+                        placeholder='Player 1'
+                        value={inputValue1}
+                        onChange={handleInputChange1} />
+                    <input type="text"
+                        id='input2'
+                        name='username2'
+                        placeholder='Player 2'
+                        value={inputValue2}
+                        onChange={handleInputChange2} />
+                    <br />
+                    <button id='submitBtn' type='submit'>Submit Names</button>
+                </form>
+                <button id='resetNamesBtn' onClick={handleReset}>Reset Names</button>
 
-            <h1 id='player1'>{savedValue1}</h1>
-            <h1 id='player2'>{savedValue2}</h1>
+                <h1 id='player1'>{savedValue1}</h1>
+                <h1 id='player2'>{savedValue2}</h1>
 
-
+            </div>
 
         </>
 
