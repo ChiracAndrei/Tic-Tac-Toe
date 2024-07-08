@@ -10,12 +10,6 @@ export default function Names() {
         const savedNames = localStorage.getItem('namesList');
         return savedNames ? JSON.parse(savedNames) : [];
     });
-    useEffect(() => {
-        localStorage.setItem('namesList', JSON.stringify(namesList));
-    }, [namesList]);
-
-
-
     const [savedValue1, setSavedValue1] = useState(() => {
         return localStorage.getItem('Name1') || '';
     });
@@ -23,6 +17,20 @@ export default function Names() {
     const [savedValue2, setSavedValue2] = useState(() => {
         return localStorage.getItem('Name2') || '';
     });
+    useEffect(() => {
+        localStorage.setItem('namesList', JSON.stringify(namesList));
+    }, [namesList]);
+
+    useEffect(() => {
+        localStorage.setItem('Name1', savedValue1);
+    }, [savedValue1]);
+
+    useEffect(() => {
+        localStorage.setItem('Name2', savedValue2);
+    }, [savedValue2]);
+
+
+
 
     const handleInputChange1 = (event) => {
         setInputValue1(event.target.value);
@@ -76,7 +84,7 @@ export default function Names() {
         } else if (savedValue2 === '') {
             setSavedValue2(item.name);
         } else {
-            alert('Both names are already set. Reset one to update.');
+            alert('Ambele nume sunt setate. Apasa reset si poti alege altele');
         }
 
     }
@@ -89,7 +97,7 @@ export default function Names() {
                     type="text"
                     id='input1'
                     name='username1'
-                    placeholder='Player 1'
+                    placeholder='Player 1(X)'
                     value={inputValue1}
                     onChange={handleInputChange1}
                 />
@@ -98,7 +106,7 @@ export default function Names() {
                     type="text"
                     id='input2'
                     name='username2'
-                    placeholder='Player 2'
+                    placeholder='Player 2(O)'
                     value={inputValue2}
                     onChange={handleInputChange2}
                 />
@@ -120,7 +128,7 @@ export default function Names() {
                 <h1 id='player1'>{savedValue1}</h1>
                 <h1 id='player2'>{savedValue2}</h1>
 
-
+                <h4 id='listHeader'>Lista Jucatori:</h4>
                 <ul id='listNames'>
 
                     {namesList.map((item, index) => (
