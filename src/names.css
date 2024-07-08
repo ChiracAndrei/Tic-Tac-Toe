@@ -76,3 +76,9 @@
 #resetNamesBtn:hover {
     background-color: rgb(246, 108, 108);
 }
+
+#listNames {
+    position: absolute;
+    margin-left: 800px;
+
+}
