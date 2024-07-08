@@ -82,3 +82,8 @@
     margin-left: 800px;
 
 }
+
+.selected {
+    background-color: yellow;
+
+}

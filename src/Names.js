@@ -5,21 +5,24 @@ export default function Names() {
 
     const [inputValue1, setInputValue1] = useState('');
     const [inputValue2, setInputValue2] = useState('');
-    const [elements, setElements] = useState([]);
+
+    const [namesList, setNamesList] = useState(() => {
+        const savedNames = localStorage.getItem('namesList');
+        return savedNames ? JSON.parse(savedNames) : [];
+    });
+    useEffect(() => {
+        localStorage.setItem('namesList', JSON.stringify(namesList));
+    }, [namesList]);
+
+
 
     const [savedValue1, setSavedValue1] = useState(() => {
-        return (localStorage.getItem('Name1')) || ('');
+        return localStorage.getItem('Name1') || '';
     });
 
     const [savedValue2, setSavedValue2] = useState(() => {
-        return (localStorage.getItem('Name2')) || ('');
+        return localStorage.getItem('Name2') || '';
     });
-
-    useEffect(() => {
-        localStorage.getItem('Name1')
-        localStorage.getItem('Name2')
-
-    }, [])
 
     const handleInputChange1 = (event) => {
         setInputValue1(event.target.value);
@@ -35,7 +38,7 @@ export default function Names() {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        if ((inputValue1 == '') || (inputValue2 == '')) {
+        if ((inputValue1 === '') || (inputValue2 === '')) {
             alert('Nu ai completat numele')
         } else {
             setSavedValue1(inputValue1);
@@ -44,61 +47,95 @@ export default function Names() {
             localStorage.setItem("Name1", inputValue1)
             localStorage.setItem("Name2", inputValue2)
 
+            const newNames = [{ name: inputValue1 }, { name: inputValue2 }];
 
-
-            let newValue1 = inputValue1;
-            let newValue2 = inputValue2;
-
-            setElements([...elements, newValue1, newValue2])
+            const filteredNames = newNames.filter(
+                newName => !namesList.some(existingName => existingName.name === newName.name)
+            );
+            setNamesList([...namesList, ...filteredNames]);
 
             setInputValue1('');
             setInputValue2('');
+
         }
     };
 
-    function handleReset() {
+
+
+    function handleResetNames() {
         setSavedValue1('')
         setSavedValue2('')
+        localStorage.removeItem('Name1');
+        localStorage.removeItem('Name2');
 
     }
+    const items = [savedValue1, savedValue2]
+    const handleClickListItem = (item) => {
+        if (savedValue1 === '') {
+            setSavedValue1(item.name);
+        } else if (savedValue2 === '') {
+            setSavedValue2(item.name);
+        } else {
+            alert('Both names are already set. Reset one to update.');
+        }
 
-
-    //    functioe care creaza un li pentru nume 
-    // functie click care duce valoare din lista in numele jucatorului
-
+    }
 
     return (
         <>
             <div id='namesContainer'>
-                <form onSubmit={handleSubmit}>
-                    <input type="text"
-                        id='input1'
-                        name='username1'
-                        placeholder='Player 1'
-                        value={inputValue1}
-                        onChange={handleInputChange1} />
-                    <input type="text"
-                        id='input2'
-                        name='username2'
-                        placeholder='Player 2'
-                        value={inputValue2}
-                        onChange={handleInputChange2} />
-                    <br />
-                    <button id='submitBtn' type='submit'>Submit Names</button>
-                </form>
-                <button id='resetNamesBtn' onClick={handleReset}>Reset Names</button>
+
+                <input
+                    type="text"
+                    id='input1'
+                    name='username1'
+                    placeholder='Player 1'
+                    value={inputValue1}
+                    onChange={handleInputChange1}
+                />
+
+                <input
+                    type="text"
+                    id='input2'
+                    name='username2'
+                    placeholder='Player 2'
+                    value={inputValue2}
+                    onChange={handleInputChange2}
+                />
+                <br />
+                <button
+                    id='submitBtn'
+                    onClick={handleSubmit}
+                >
+                    Submit Names
+                </button>
+
+                <button
+                    id='resetNamesBtn'
+                    onClick={handleResetNames}
+                >
+                    Reset Names
+                </button>
 
                 <h1 id='player1'>{savedValue1}</h1>
                 <h1 id='player2'>{savedValue2}</h1>
 
 
                 <ul id='listNames'>
-                    {elements.map((elements, index) => (
-                        <button key={index}>{elements}</button>
+
+                    {namesList.map((item, index) => (
+
+                        <li
+                            key={index}
+                            onClick={() => handleClickListItem(item)}>
+                            {item.name}
+                        </li>
                     ))}
+
                 </ul>
 
-            </div>
+
+            </div >
 
         </>
 
