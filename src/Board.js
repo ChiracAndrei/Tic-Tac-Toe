@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import './App.css';
 
 
-function Board() {
+function Board({ player1, player2 }) {
 
     const [box, setBox] = useState(() => {
         return (JSON.parse(localStorage.getItem('box'))) || Array(9).fill(null);
@@ -43,22 +43,26 @@ function Board() {
         for (let i = 0; i < options.length; i++) {
             const [a, b, c] = options[i];
             if (box[a] && box[a] === box[b] && box[a] === box[c]) {
+                console.log(box[a]);
                 return box[a];
+
             }
         }
         return null;
     }
-
+    if (!player1 || !player2) {
+        return <div id="startGame">Pentru a incepe jocul selecteza 2 jucatorii</div>;
+    }
 
 
 
     let status;
     let winnerResult = calculateWinner(box)
     if (winnerResult) {
-        status = "Castigatorul este " + calculateWinner(box);
+        status = "Castigatorul este " + (winnerResult === 'X' ? player1 : player2);
 
     } else {
-        status = "Este randul lui: " + (turn ? "X" : "O");
+        status = "Este randul lui: " + (turn ? player1 : player2);
     }
 
 

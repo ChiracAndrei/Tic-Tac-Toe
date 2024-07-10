@@ -83,11 +83,16 @@
     margin-top: 50px;
     font-size: 1.5em;
     list-style-type: circle;
-    border: 2px solid black;
+    border: 3px solid black;
     min-width: 140px;
-    border-radius: 10px;
+    border-radius: 5px;
     min-height: 100px;
     padding-top: 10px;
+    max-height: 300px;
+    overflow: scroll;
+    scrollbar-color: rgb(148, 85, 215) rgba(255, 255, 255, 0);
+    scrollbar-width: thin;
+
 }
 
 #listHeader {
@@ -99,8 +104,15 @@
 
 #listNames li {
     cursor: pointer;
+    width: fit-content;
 }
 
 #listNames li:hover {
     color: blueviolet;
+}
+
+.highlight {
+    background-color: rgb(173, 154, 227);
+    border-radius: 10px;
+    padding: 0px 5px;
 }

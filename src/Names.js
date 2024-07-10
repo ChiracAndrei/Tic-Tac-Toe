@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import "./names.css"
+import Board from "./Board";
+
 
 export default function Names() {
 
@@ -48,7 +50,16 @@ export default function Names() {
 
         if ((inputValue1 === '') || (inputValue2 === '')) {
             alert('Nu ai completat numele')
+            return;
+
         } else {
+            const nameExists1 = namesList.some(existingName => existingName.name === inputValue1);
+            const nameExists2 = namesList.some(existingName => existingName.name === inputValue2);
+
+            if (nameExists1 || nameExists2) {
+                alert("Unul sau ambele nume exista deja")
+                return;
+            }
             setSavedValue1(inputValue1);
             setSavedValue2(inputValue2);
 
@@ -56,11 +67,7 @@ export default function Names() {
             localStorage.setItem("Name2", inputValue2)
 
             const newNames = [{ name: inputValue1 }, { name: inputValue2 }];
-
-            const filteredNames = newNames.filter(
-                newName => !namesList.some(existingName => existingName.name === newName.name)
-            );
-            setNamesList([...namesList, ...filteredNames]);
+            setNamesList([...namesList, ...newNames]);
 
             setInputValue1('');
             setInputValue2('');
@@ -77,17 +84,26 @@ export default function Names() {
         localStorage.removeItem('Name2');
 
     }
-    const items = [savedValue1, savedValue2]
+
     const handleClickListItem = (item) => {
+
         if (savedValue1 === '') {
-            setSavedValue1(item.name);
+            if (savedValue2 !== item.name) { setSavedValue1(item.name); }
+            else { alert("Numele este deja folosit") }
+
         } else if (savedValue2 === '') {
-            setSavedValue2(item.name);
+            if (savedValue1 !== item.name) { setSavedValue2(item.name); }
+            else { alert("Numele este deja folosit") }
+
         } else {
             alert('Ambele nume sunt setate. Apasa reset si poti alege altele');
         }
-
+        setInputValue1('');
+        setInputValue2('');
     }
+
+    const filteredNames1 = namesList.filter(item => item.name.toLowerCase().includes(inputValue1.toLowerCase()));
+    const filteredNames2 = namesList.filter(item => item.name.toLowerCase().includes(inputValue2.toLowerCase()));
 
     return (
         <>
@@ -135,6 +151,9 @@ export default function Names() {
 
                         <li
                             key={index}
+                            className={
+                                (inputValue1 && item.name.toLowerCase().includes(inputValue1.toLowerCase())) ||
+                                    (inputValue2 && item.name.toLowerCase().includes(inputValue2.toLowerCase())) ? 'highlight' : ''}
                             onClick={() => handleClickListItem(item)}>
                             {item.name}
                         </li>
@@ -144,6 +163,7 @@ export default function Names() {
 
 
             </div >
+            <Board player1={savedValue1} player2={savedValue2} />
 
         </>
 
