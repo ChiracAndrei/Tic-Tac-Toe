@@ -106,66 +106,66 @@ export default function Names() {
     const filteredNames2 = namesList.filter(item => item.name.toLowerCase().includes(inputValue2.toLowerCase()));
 
     return (
-        <>
-            <div id='namesContainer'>
 
-                <input
-                    type="text"
-                    id='input1'
-                    name='username1'
-                    placeholder='Player 1(X)'
-                    value={inputValue1}
-                    onChange={handleInputChange1}
-                />
+        < div id='namesContainer' >
 
-                <input
-                    type="text"
-                    id='input2'
-                    name='username2'
-                    placeholder='Player 2(O)'
-                    value={inputValue2}
-                    onChange={handleInputChange2}
-                />
-                <br />
-                <button
-                    id='submitBtn'
-                    onClick={handleSubmit}
-                >
-                    Submit Names
-                </button>
+            <input
+                type="text"
+                id='input1'
+                name='username1'
+                placeholder='Player 1(X)'
+                value={inputValue1}
+                onChange={handleInputChange1}
+            />
 
-                <button
-                    id='resetNamesBtn'
-                    onClick={handleResetNames}
-                >
-                    Reset Names
-                </button>
+            <input
+                type="text"
+                id='input2'
+                name='username2'
+                placeholder='Player 2(O)'
+                value={inputValue2}
+                onChange={handleInputChange2}
+            />
+            <br />
+            <button
+                id='submitBtn'
+                onClick={handleSubmit}
+            >
+                Submit Names
+            </button>
 
-                <h1 id='player1'>{savedValue1}</h1>
-                <h1 id='player2'>{savedValue2}</h1>
+            <button
+                id='resetNamesBtn'
+                onClick={handleResetNames}
+            >
+                Reset Names
+            </button>
 
-                <h4 id='listHeader'>Lista Jucatori:</h4>
-                <ul id='listNames'>
+            <h1 id='player1'>{savedValue1}</h1>
+            <h1 id='player2'>{savedValue2}</h1>
 
-                    {namesList.map((item, index) => (
+            <h4 id='listHeader'>Lista Jucatori:</h4>
+            <ul id='listNames'>
 
-                        <li
-                            key={index}
-                            className={
-                                (inputValue1 && item.name.toLowerCase().includes(inputValue1.toLowerCase())) ||
-                                    (inputValue2 && item.name.toLowerCase().includes(inputValue2.toLowerCase())) ? 'highlight' : ''}
-                            onClick={() => handleClickListItem(item)}>
-                            {item.name}
-                        </li>
-                    ))}
+                {namesList.map((item, index) => (
 
-                </ul>
+                    <li
+                        key={index}
+                        className={
+                            (inputValue1 && item.name.toLowerCase().includes(inputValue1.toLowerCase())) ||
+                                (inputValue2 && item.name.toLowerCase().includes(inputValue2.toLowerCase())) ? 'highlight' : ''}
+                        onClick={() => handleClickListItem(item)}>
+                        {item.name}
+                    </li>
+                ))}
 
+            </ul>
 
-            </div >
             <Board player1={savedValue1} player2={savedValue2} />
+        </div >
 
-        </>
+
+
 
     )
 }

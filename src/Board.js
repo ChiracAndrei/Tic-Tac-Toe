@@ -43,7 +43,6 @@ function Board({ player1, player2 }) {
         for (let i = 0; i < options.length; i++) {
             const [a, b, c] = options[i];
             if (box[a] && box[a] === box[b] && box[a] === box[c]) {
-                console.log(box[a]);
                 return box[a];
 
             }
@@ -53,14 +52,19 @@ function Board({ player1, player2 }) {
     if (!player1 || !player2) {
         return <div id="startGame">Pentru a incepe jocul selecteza 2 jucatorii</div>;
     }
-
+    function isTie(box) {
+        return box.every(square => square !== null);
+    }
 
 
     let status;
     let winnerResult = calculateWinner(box)
+
     if (winnerResult) {
         status = "Castigatorul este " + (winnerResult === 'X' ? player1 : player2);
 
+    } else if (isTie(box)) {
+        status = "Este egalitate!"
     } else {
         status = "Este randul lui: " + (turn ? player1 : player2);
     }

@@ -86,7 +86,7 @@
     border: 3px solid black;
     min-width: 140px;
     border-radius: 5px;
-    min-height: 100px;
+    min-height: 150px;
     padding-top: 10px;
     max-height: 300px;
     overflow: scroll;
@@ -115,4 +115,135 @@
     background-color: rgb(173, 154, 227);
     border-radius: 10px;
     padding: 0px 5px;
+}
+
+
+
+@media (max-width:1000px) {
+
+
+    #input1 {
+        position: absolute;
+        font-size: 1.6em;
+        border: 2px solid black;
+
+    }
+
+    #input2 {
+        position: absolute;
+        margin-top: 80px;
+        font-size: 1.6em;
+        border: 2px solid black;
+    }
+
+    #submitBtn {
+        font-size: 1.3em;
+        margin-left: 350px;
+    }
+
+    #resetNamesBtn {
+        font-size: 1.3em;
+        margin-left: 350px;
+        margin-top: 60px;
+    }
+
+    #player1 {
+        font-size: 1.6em;
+        min-height: 30px;
+        min-width: 80px;
+        margin-top: 180px;
+        margin-left: 80px;
+
+    }
+
+    #player2 {
+        font-size: 1.6em;
+        min-height: 30px;
+        min-width: 80px;
+        margin-top: 180px;
+        margin-left: 350px;
+    }
+
+    #listNames {
+        margin-left: 550px;
+        margin-top: 150px;
+        font-size: 1.2em;
+    }
+
+    #listHeader {
+        margin-left: 550px;
+        margin-top: 110px;
+        font-size: 1.5em;
+    }
+
+
+}
+
+@media (max-width:710px) {
+
+
+    #input1 {
+        position: absolute;
+        font-size: 2em;
+        border: 2px solid black;
+        margin-left: 80px;
+        margin-top: 30px;
+
+    }
+
+    #input2 {
+        position: absolute;
+        margin-top: 80px;
+        font-size: 2em;
+        border: 2px solid black;
+        margin-left: 80px;
+        margin-top: 100px;
+    }
+
+    #submitBtn {
+        font-size: 2em;
+        margin-left: 450px;
+        margin-top: 10px;
+        min-width: 240px;
+    }
+
+    #resetNamesBtn {
+        font-size: 1.7em;
+        margin-left: 500px;
+        margin-top: 80px;
+        min-width: 190px;
+    }
+
+    #player1 {
+        font-size: 2em;
+        min-height: 40px;
+        min-width: 100px;
+        margin-top: 200px;
+        margin-left: 120px;
+
+    }
+
+    #player2 {
+        font-size: 2em;
+        min-height: 40px;
+        min-width: 100px;
+        margin-top: 200px;
+        margin-left: 430px;
+    }
+
+    #listNames {
+        margin-left: 200px;
+        margin-top: 1200px;
+        font-size: 2em;
+        min-width: 200px;
+
+    }
+
+    #listHeader {
+        margin-left: 200px;
+        margin-top: 1150px;
+        font-size: 2.3em;
+    }
+
+
 }
