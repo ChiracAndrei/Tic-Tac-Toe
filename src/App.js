@@ -1,15 +1,17 @@
 
 import './App.css';
-import Board from "./Board";
-import Example from "./Test"
+import Names from './Names';
+
+
+
 
 function App() {
 
 
   return (
     <>
-      {/* <Board></Board> */}
-      <Example></Example>
+      <Names></Names>
+
     </>
   );
 }

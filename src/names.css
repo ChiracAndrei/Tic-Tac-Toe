@@ -1,0 +1,249 @@
+#player1 {
+    font-size: 2em;
+    position: absolute;
+    border: 2px solid black;
+    padding: 5px 10px;
+    min-height: 40px;
+    min-width: 100px;
+    margin-left: 130px;
+    margin-top: 120px;
+    border-radius: 10px;
+    background-color: aqua;
+    font-weight: 600;
+
+}
+
+#player2 {
+    font-size: 2em;
+    position: absolute;
+    margin-left: 530px;
+    border: 2px solid black;
+    padding: 5px 10px;
+    min-height: 40px;
+    min-width: 100px;
+    margin-top: 120px;
+    border-radius: 10px;
+    background-color: aqua;
+    font-weight: 600;
+}
+
+#input1 {
+    margin: 20px;
+    font-size: 2em;
+    border: 3px solid black;
+    border-radius: 10px 20px 10px 20px;
+    padding-left: 10px;
+}
+
+#input2 {
+    font-size: 2em;
+    margin: 20px;
+    border: 3px solid black;
+    border-radius: 10px 20px 10px 20px;
+    padding-left: 10px;
+}
+
+#submitBtn {
+    position: absolute;
+    font-size: 1.5em;
+    margin-left: 190px;
+    padding: 5px 10px;
+    background-color: green;
+    color: aliceblue;
+    font-weight: 500;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#submitBtn:hover {
+    background-color: rgb(62, 152, 62);
+}
+
+#resetNamesBtn {
+    position: absolute;
+    margin-left: 420px;
+    font-size: 1.5em;
+    padding: 5px 10px;
+    background-color: red;
+    color: aliceblue;
+    font-weight: 500;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#resetNamesBtn:hover {
+    background-color: rgb(246, 108, 108);
+}
+
+#listNames {
+    position: absolute;
+    margin-left: 800px;
+    margin-top: 50px;
+    font-size: 1.5em;
+    list-style-type: circle;
+    border: 3px solid black;
+    min-width: 140px;
+    border-radius: 5px;
+    min-height: 150px;
+    padding-top: 10px;
+    max-height: 300px;
+    overflow: scroll;
+    scrollbar-color: rgb(148, 85, 215) rgba(255, 255, 255, 0);
+    scrollbar-width: thin;
+
+}
+
+#listHeader {
+    position: absolute;
+    margin-left: 800px;
+    margin-top: 0px;
+    font-size: 1.7em;
+}
+
+#listNames li {
+    cursor: pointer;
+    width: fit-content;
+}
+
+#listNames li:hover {
+    color: blueviolet;
+}
+
+.highlight {
+    background-color: rgb(173, 154, 227);
+    border-radius: 10px;
+    padding: 0px 5px;
+}
+
+
+
+@media (max-width:1000px) {
+
+
+    #input1 {
+        position: absolute;
+        font-size: 1.6em;
+        border: 2px solid black;
+
+    }
+
+    #input2 {
+        position: absolute;
+        margin-top: 80px;
+        font-size: 1.6em;
+        border: 2px solid black;
+    }
+
+    #submitBtn {
+        font-size: 1.3em;
+        margin-left: 350px;
+    }
+
+    #resetNamesBtn {
+        font-size: 1.3em;
+        margin-left: 350px;
+        margin-top: 60px;
+    }
+
+    #player1 {
+        font-size: 1.6em;
+        min-height: 30px;
+        min-width: 80px;
+        margin-top: 180px;
+        margin-left: 80px;
+
+    }
+
+    #player2 {
+        font-size: 1.6em;
+        min-height: 30px;
+        min-width: 80px;
+        margin-top: 180px;
+        margin-left: 350px;
+    }
+
+    #listNames {
+        margin-left: 550px;
+        margin-top: 150px;
+        font-size: 1.2em;
+    }
+
+    #listHeader {
+        margin-left: 550px;
+        margin-top: 110px;
+        font-size: 1.5em;
+    }
+
+
+}
+
+@media (max-width:710px) {
+
+
+    #input1 {
+        position: absolute;
+        font-size: 2em;
+        border: 2px solid black;
+        margin-left: 20px;
+        margin-top: 40px;
+
+    }
+
+    #input2 {
+        position: absolute;
+        margin-top: 80px;
+        font-size: 2em;
+        border: 2px solid black;
+        margin-left: 20px;
+        margin-top: 110px;
+    }
+
+    #submitBtn {
+        font-size: 1.2em;
+        margin-left: 20px;
+        margin-top: 160px;
+        min-width: 100px;
+    }
+
+    #resetNamesBtn {
+        font-size: 1.2em;
+        margin-left: 200px;
+        margin-top: 160px;
+        min-width: 100px;
+    }
+
+    #player1 {
+        font-size: 1.5em;
+        min-height: 30px;
+        min-width: 80px;
+        margin-top: 230px;
+        margin-left: 40px;
+
+    }
+
+    #player2 {
+        font-size: 1.5em;
+        min-height: 30px;
+        min-width: 80px;
+        margin-top: 230px;
+        margin-left: 250px;
+    }
+
+    #listNames {
+        margin-left: 80px;
+        margin-top: 850px;
+        font-size: 2em;
+        min-width: 200px;
+
+    }
+
+    #listHeader {
+        margin-left: 100px;
+        margin-top: 800px;
+        font-size: 1.7em;
+    }
+
+
+}
